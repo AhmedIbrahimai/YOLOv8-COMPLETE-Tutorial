@@ -1,0 +1,28 @@
+pip install ultralytics
+import torch
+torch.cuda.is_available()
+torch.__version__
+1 - yolo task=detect mode=predict model=yolov8n.pt source=t.jpg conf=0.5
+2 - yolo task=detect mode=predict model=yolov8n.pt source=t.jpg conf=0.5 show=True
+3 - yolo task=detect mode=predict model=yolov8n.pt save_txt=True 
+4- yolo task=detect mode=predict source=t.jpg model=yolov8n.pt save_crop=True
+
+5- yolo task=detect mode=predict model=yolov8n.pt source=t.jpg conf=0.5 save_crop=True hide_labels=True hide_conf=True
+
+6- yolo task=detect mode=predict model=yolov8n.pt source=0 conf=0.5 show=True
+
+7- yolo task=segment mode=predict model=yolov8n-seg.pt source=t.jpg conf=0.5 show=True
+
+8- yolo task=classify mode=predict model=yolov8n-cls.pt source=dog.jpg conf=0.5
+
+9- yolo mode=export task=detect model=yolov8n.pt format=onnx
+10- yolo mode=export task=segment model=yolov8n.pt format=onnx
+
+=======
+import os
+os.chdir(r'C:\Users\amb\Downloads\YOLOv8')
+
+from ultralytics import YOLO
+
+model = YOLO("yolov8n-seg.pt")
+model.predict(source='cctv.mp4', save=True,conf=0.5,save_txt=False,show=True)
